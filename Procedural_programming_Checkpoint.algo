@@ -1,0 +1,128 @@
+// Algorithem Using dot_product procedure
+ALGORITHM Dot product
+VAR
+    x , y , z , ps : FLOAT := 0 ;
+    v1 , v2 : ARRAY_OF FLOAT[3];
+    i , j , n : INTEGER;
+
+    PROCEDURE dot_product(V1 : ARRAY_OF FLOAT[3], V2 : ARRAY_OF FLOAT[3],VAR ps:FLOAT)
+    BEGIN
+        x := v1[0]*v2[0];
+        y := v1[1]*v2[1];
+        z := v1[2]*v2[2];
+        ps := x + y + z;
+    END
+
+BEGIN
+    
+    Write("Entre the valuer of the First Vector : ")
+    FOR i FROM 0 TO 3 STEP 1  DO
+        Write("The value " , i , ": ");
+        Read(v1[i]);
+    END_FOR
+
+    Write("Entre the valuer of the Second Vector : ")
+    FOR i FROM 0 TO 3 STEP 1  DO
+        Write("The value " , i , ": ");
+        Read(v2[i]);
+    END_FOR
+
+    dot_product(v1,v2,ps);
+
+    Write(ps); 
+
+    Write("Entre number of pair of vecteur : ");
+    Read(n);
+
+    FOR i FROM 0 TO n STEP 1  DO
+        Write("Entre the valuer of the First Vector : ");
+        FOR j FROM 0 TO 3 STEP step  DO
+            Write("The value " , j , ": ");
+            Read(v1[j]);
+        END_FOR
+
+        Write("Entre the valuer of the Second Vector : ")
+        FOR j FROM 0 TO 3 STEP 1  DO
+            Write("The value " , j , ": ");
+            Read(v2[j]);
+        END_FOR
+
+        ps := 0;
+
+        dot_product(v1,v2,ps);
+
+        IF (ps = 0) THEN
+            Write("The ", i , " pair is orthogonal");
+        ELSE
+            Write("The ", i , " pair is Not orthogonal");
+        END_IF
+
+    END_FOR
+
+END
+
+// Algorithem Using dot_product function
+ALGORITHM Dot product
+VAR
+    x , y , z , ps : FLOAT := 0 ;
+    v1 , v2 : ARRAY_OF FLOAT[3];
+    i , j : INTEGER;
+
+    FUNCTION dot_product(V1 : ARRAY_OF FLOAT[3], V2 : ARRAY_OF FLOAT[3]) : FLOAT
+    BEGIN
+        x := v1[0]*v2[0];
+        y := v1[1]*v2[1];
+        z := v1[2]*v2[2];
+        ps := x + y + z;
+        RETURN ps;
+    END
+
+BEGIN
+
+    // Part I - 
+    
+    Write("Entre the valuer of the First Vector : ")
+    FOR i FROM 0 TO 3 STEP 1  DO
+        Write("The value " , i , ": ");
+        Read(v1[i]);
+    END_FOR
+
+    Write("Entre the valuer of the Second Vector : ")
+    FOR i FROM 0 TO 3 STEP 1  DO
+        Write("The value " , i , ": ");
+        Read(v2[i]);
+    END_FOR
+
+    dot_product(v1,v2);
+
+    // Part II - 
+
+    Write("Entre number of pair of vecteur : ");
+    Read(n);
+
+    FOR i FROM 0 TO n STEP 1  DO
+        Write("Entre the valuer of the First Vector : ");
+        FOR j FROM 0 TO 3 STEP step  DO
+            Write("The value " , j , ": ");
+            Read(v1[j]);
+        END_FOR
+
+        Write("Entre the valuer of the Second Vector : ")
+        FOR j FROM 0 TO 3 STEP 1  DO
+            Write("The value " , j , ": ");
+            Read(v2[j]);
+        END_FOR
+
+        ps := 0;
+
+        dot_product(v1,v2);
+
+        IF (ps = 0) THEN
+            Write("The ", i , " pair is orthogonal");
+        ELSE
+            Write("The ", i , " pair is Not orthogonal");
+        END_IF
+
+    END_FOR
+
+END
